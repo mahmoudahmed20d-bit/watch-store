@@ -1,3 +1,4 @@
+import { FaWhatsapp } from "react-icons/fa";
 const watches = [
   {
     id: 1,
@@ -139,12 +140,12 @@ export default function Home() {
 
       {/* Floating WhatsApp */}
       <a
-        href="https://wa.me/201203226232"
-        target="_blank"
-        className="fixed bottom-5 right-5 bg-green-500 text-white px-5 py-3 rounded-full shadow-lg font-bold z-50 hover:bg-green-600 transition"
-      >
-        واتساب
-      </a>
+  href="https://wa.me/201203226232"
+  target="_blank"
+  className="fixed bottom-5 right-5 bg-green-500 w-16 h-16 rounded-full flex items-center justify-center shadow-lg z-50 hover:scale-110 transition"
+>
+  <FaWhatsapp size={35} />
+</a>
 
     </main>
   );
