@@ -1,4 +1,5 @@
 import { FaWhatsapp } from "react-icons/fa";
+
 const watches = [
   {
     id: 1,
@@ -18,28 +19,28 @@ export default function Home() {
           Time Store
         </h1>
 
-        <div className="flex gap-6 mt-4 md:mt-0 text-lg">
-          <a href="#" className="hover:text-yellow-500">
+        <div className="flex gap-4 md:gap-6 mt-4 md:mt-0 text-sm md:text-lg">
+          <a href="#" className="hover:text-yellow-500 transition">
             الرئيسية
           </a>
 
-          <a href="#" className="hover:text-yellow-500">
+          <a href="#" className="hover:text-yellow-500 transition">
             المنتجات
           </a>
 
-          <a href="#" className="hover:text-yellow-500">
+          <a href="#" className="hover:text-yellow-500 transition">
             تواصل معنا
           </a>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="text-center max-w-4xl mx-auto px-6 py-16">
-        <h2 className="text-5xl md:text-7xl font-bold text-yellow-500 leading-tight">
+      {/* Hero */}
+      <section className="text-center max-w-4xl mx-auto px-6 py-12 md:py-16">
+        <h2 className="text-4xl md:text-7xl font-bold text-yellow-500 leading-tight">
           أفخم الساعات الفاخرة
         </h2>
 
-        <p className="mt-6 text-gray-400 text-xl">
+        <p className="mt-6 text-gray-400 text-lg md:text-xl">
           تشكيلة مميزة من الساعات الرجالي والنسائي
         </p>
 
@@ -50,6 +51,13 @@ export default function Home() {
         >
           اطلب عبر واتساب
         </a>
+      </section>
+
+      {/* Products Title */}
+      <section className="text-center pb-10">
+        <h2 className="text-3xl font-bold text-yellow-500">
+          أحدث المنتجات
+        </h2>
       </section>
 
       {/* Products */}
@@ -65,7 +73,7 @@ export default function Home() {
                 <img
                   src={watch.image}
                   alt={watch.name}
-                  className="w-full h-72 object-cover hover:scale-105 transition duration-300"
+                  className="w-full h-80 md:h-96 object-cover hover:scale-105 transition duration-300"
                 />
               </a>
 
@@ -140,12 +148,12 @@ export default function Home() {
 
       {/* Floating WhatsApp */}
       <a
-  href="https://wa.me/201203226232"
-  target="_blank"
-  className="fixed bottom-5 right-5 bg-green-500 w-16 h-16 rounded-full flex items-center justify-center shadow-lg z-50 hover:scale-110 transition"
->
-  <FaWhatsapp size={35} />
-</a>
+        href="https://wa.me/201203226232"
+        target="_blank"
+        className="fixed bottom-5 right-5 bg-green-500 w-16 h-16 rounded-full flex items-center justify-center shadow-2xl z-50 hover:scale-110 transition duration-300"
+      >
+        <FaWhatsapp size={35} />
+      </a>
 
     </main>
   );
