@@ -18,34 +18,43 @@ export default function Home() {
         </h1>
 
         <div className="flex gap-6 mt-4 md:mt-0 text-lg">
-          <a href="#">الرئيسية</a>
-          <a href="#">المنتجات</a>
-          <a href="#">تواصل معنا</a>
+          <a href="#" className="hover:text-yellow-500">
+            الرئيسية
+          </a>
+
+          <a href="#" className="hover:text-yellow-500">
+            المنتجات
+          </a>
+
+          <a href="#" className="hover:text-yellow-500">
+            تواصل معنا
+          </a>
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="text-center max-w-3xl mx-auto px-6 py-12">
+      {/* Hero Section */}
+      <section className="text-center max-w-4xl mx-auto px-6 py-16">
         <h2 className="text-5xl md:text-7xl font-bold text-yellow-500 leading-tight">
           أفخم الساعات الفاخرة
         </h2>
 
-        <p className="mt-4 text-gray-400 text-lg">
+        <p className="mt-6 text-gray-400 text-xl">
           تشكيلة مميزة من الساعات الرجالي والنسائي
         </p>
 
         <a
           href="https://wa.me/201203226232"
           target="_blank"
-          className="inline-block mt-6 bg-yellow-500 text-black px-8 py-3 rounded-xl font-bold hover:bg-yellow-400 transition"
+          className="inline-block mt-8 bg-yellow-500 text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-yellow-400 transition"
         >
           اطلب عبر واتساب
         </a>
       </section>
 
       {/* Products */}
-      <section className="max-w-6xl mx-auto px-6 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="max-w-6xl mx-auto px-6 pb-20">
+        <div className="grid grid-cols-1 gap-8">
+
           {watches.map((watch) => (
             <div
               key={watch.id}
@@ -78,48 +87,64 @@ export default function Home() {
               </div>
             </div>
           ))}
+
         </div>
       </section>
 
       {/* Features */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 pb-20 max-w-6xl mx-auto">
+      <section className="max-w-6xl mx-auto px-6 pb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-        <div className="border border-gray-800 rounded-xl p-6 text-center">
-          <h3 className="text-yellow-500 text-2xl font-bold">
-            منتجات أصلية
-          </h3>
+          <div className="border border-gray-800 rounded-xl p-6 text-center">
+            <h3 className="text-yellow-500 text-xl font-bold">
+              منتجات أصلية
+            </h3>
 
-          <p className="text-gray-400 mt-3">
-            جودة عالية وضمان على جميع المنتجات
-          </p>
+            <p className="text-gray-400 mt-2">
+              أفضل الخامات وأعلى جودة
+            </p>
+          </div>
+
+          <div className="border border-gray-800 rounded-xl p-6 text-center">
+            <h3 className="text-yellow-500 text-xl font-bold">
+              شحن سريع
+            </h3>
+
+            <p className="text-gray-400 mt-2">
+              توصيل لجميع المحافظات
+            </p>
+          </div>
+
+          <div className="border border-gray-800 rounded-xl p-6 text-center">
+            <h3 className="text-yellow-500 text-xl font-bold">
+              دعم مستمر
+            </h3>
+
+            <p className="text-gray-400 mt-2">
+              الرد على جميع الاستفسارات
+            </p>
+          </div>
+
         </div>
-
-        <div className="border border-gray-800 rounded-xl p-6 text-center">
-          <h3 className="text-yellow-500 text-2xl font-bold">
-            شحن سريع
-          </h3>
-
-          <p className="text-gray-400 mt-3">
-            توصيل لجميع المحافظات
-          </p>
-        </div>
-
-        <div className="border border-gray-800 rounded-xl p-6 text-center">
-          <h3 className="text-yellow-500 text-2xl font-bold">
-            دعم 24/24
-          </h3>
-
-          <p className="text-gray-400 mt-3">
-            متاحين للرد على جميع الاستفسارات
-          </p>
-        </div>
-
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-800 py-6 text-center text-gray-500">
-        © 2026 Time Store - جميع الحقوق محفوظة
+      <footer className="border-t border-gray-800 py-8 text-center text-gray-400">
+        <p>© 2026 Time Store</p>
+
+        <p className="mt-2">
+          WhatsApp: 01203226232
+        </p>
       </footer>
+
+      {/* Floating WhatsApp */}
+      <a
+        href="https://wa.me/201203226232"
+        target="_blank"
+        className="fixed bottom-5 right-5 bg-green-500 text-white px-5 py-3 rounded-full shadow-lg font-bold z-50 hover:bg-green-600 transition"
+      >
+        واتساب
+      </a>
 
     </main>
   );
