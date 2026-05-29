@@ -22,7 +22,7 @@ export default function ProductPage() {
           </p> 
 
           <a
-            href="https://wa.me/201279425370"
+            href="https://wa.me/201203226232"
             className="inline-block mt-6 bg-yellow-500 text-black px-8 py-3 rounded-lg font-bold"
           >
             اطلب عبر واتساب
