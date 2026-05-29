@@ -42,9 +42,15 @@ export default function Home() {
       <nav className="border-b border-zinc-900/60 px-6 py-6 max-w-7xl mx-auto">
         <div className="flex justify-between items-center">
           
-          <h1 className="text-2xl md:text-3xl font-serif tracking-tight text-[#d4af37] cursor-pointer">
-            .orologio
-          </h1>
+          <div className="cursor-pointer">
+  <h1 className="text-2xl md:text-3xl font-serif tracking-tight text-[#d4af37]">
+    TIME STORE
+  </h1>
+
+  <p className="text-[10px] tracking-[0.3em] text-zinc-500">
+    LUXURY WATCHES
+  </p>
+</div>
 
           <div className="hidden md:flex gap-10 text-xs tracking-widest uppercase text-zinc-400">
             <a href="#" className="hover:text-[#d4af37] transition-colors duration-300">
