@@ -13,6 +13,11 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
 
+      {/* Top Bar */}
+      <div className="bg-yellow-500 text-black text-center py-2 font-bold">
+        🚚 شحن سريع لجميع المحافظات | خصومات لفترة محدودة
+      </div>
+
       {/* Navbar */}
       <nav className="flex flex-col md:flex-row justify-between items-center px-6 py-5 border-b border-gray-800">
         <h1 className="text-4xl font-bold text-yellow-500">
@@ -20,37 +25,95 @@ export default function Home() {
         </h1>
 
         <div className="flex gap-4 md:gap-6 mt-4 md:mt-0 text-sm md:text-lg">
-          <a href="#" className="hover:text-yellow-500 transition">
+          <a href="#" className="hover:text-yellow-500">
             الرئيسية
           </a>
 
-          <a href="#" className="hover:text-yellow-500 transition">
+          <a href="#products" className="hover:text-yellow-500">
             المنتجات
           </a>
 
-          <a href="#" className="hover:text-yellow-500 transition">
+          <a
+            href="https://wa.me/201203226232"
+            className="hover:text-yellow-500"
+          >
             تواصل معنا
           </a>
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="text-center max-w-4xl mx-auto px-6 py-12 md:py-16">
-        <h2 className="text-4xl md:text-7xl font-bold text-yellow-500 leading-tight">
-          أفخم الساعات الفاخرة
-        </h2>
+      {/* Hero Banner */}
+      <section className="relative h-[500px] flex items-center justify-center text-center overflow-hidden">
 
-        <p className="mt-6 text-gray-400 text-lg md:text-xl">
-          تشكيلة مميزة من الساعات الرجالي والنسائي
-        </p>
+        <img
+          src="/Rolex.jpg"
+          alt="Rolex"
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
+        />
 
-        <a
-          href="https://wa.me/201203226232"
-          target="_blank"
-          className="inline-block mt-8 bg-yellow-500 text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-yellow-400 transition"
-        >
-          اطلب عبر واتساب
-        </a>
+        <div className="relative z-10 px-6">
+          <h2 className="text-5xl md:text-7xl font-bold text-yellow-500">
+            Time Store
+          </h2>
+
+          <p className="mt-6 text-xl md:text-2xl text-gray-300">
+            أفخم الساعات الفاخرة بأفضل الأسعار
+          </p>
+
+          <div className="flex flex-col md:flex-row gap-4 justify-center mt-8">
+
+            <a
+              href="https://wa.me/201203226232"
+              target="_blank"
+              className="bg-yellow-500 text-black px-8 py-4 rounded-xl font-bold hover:bg-yellow-400 transition"
+            >
+              اطلب الآن
+            </a>
+
+            <a
+              href="#products"
+              className="border border-yellow-500 text-yellow-500 px-8 py-4 rounded-xl font-bold hover:bg-yellow-500 hover:text-black transition"
+            >
+              مشاهدة المنتجات
+            </a>
+
+          </div>
+        </div>
+
+      </section>
+
+      {/* Stats */}
+      <section className="max-w-6xl mx-auto py-12 px-6">
+        <div className="grid grid-cols-3 text-center">
+
+          <div>
+            <h3 className="text-4xl font-bold text-yellow-500">
+              +100
+            </h3>
+            <p className="text-gray-400">
+              عميل سعيد
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-4xl font-bold text-yellow-500">
+              24h
+            </h3>
+            <p className="text-gray-400">
+              شحن سريع
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-4xl font-bold text-yellow-500">
+              100%
+            </h3>
+            <p className="text-gray-400">
+              جودة مضمونة
+            </p>
+          </div>
+
+        </div>
       </section>
 
       {/* Products Title */}
@@ -61,19 +124,22 @@ export default function Home() {
       </section>
 
       {/* Products */}
-      <section className="max-w-6xl mx-auto px-6 pb-20">
+      <section
+        id="products"
+        className="max-w-6xl mx-auto px-6 pb-20"
+      >
         <div className="grid grid-cols-1 gap-8">
 
           {watches.map((watch) => (
             <div
               key={watch.id}
-              className="max-w-md mx-auto border border-gray-800 rounded-3xl overflow-hidden bg-zinc-950 shadow-lg hover:border-yellow-500 transition"
+              className="max-w-md mx-auto border border-gray-800 rounded-3xl overflow-hidden bg-zinc-950 shadow-2xl hover:border-yellow-500 hover:-translate-y-2 transition duration-300"
             >
               <a href={`/product/${watch.id}`}>
                 <img
                   src={watch.image}
                   alt={watch.name}
-                  className="w-full h-80 md:h-96 object-cover hover:scale-105 transition duration-300"
+                  className="w-full h-96 object-cover hover:scale-105 transition duration-300"
                 />
               </a>
 
@@ -87,7 +153,7 @@ export default function Home() {
                 </p>
 
                 <a
-                  href={`https://wa.me/201203226232?text=أريد طلب ${watch.name} بسعر ${watch.price}`}
+                  href={`https://wa.me/201203226232?text=أريد طلب ${watch.name}`}
                   target="_blank"
                   className="inline-block mt-5 bg-yellow-500 text-black px-8 py-3 rounded-xl font-bold hover:bg-yellow-400 transition"
                 >
@@ -100,15 +166,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features */}
+      {/* Why Us */}
       <section className="max-w-6xl mx-auto px-6 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <h2 className="text-4xl text-center font-bold text-yellow-500 mb-10">
+          لماذا Time Store؟
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-6">
 
           <div className="border border-gray-800 rounded-xl p-6 text-center">
             <h3 className="text-yellow-500 text-xl font-bold">
               منتجات أصلية
             </h3>
-
             <p className="text-gray-400 mt-2">
               أفضل الخامات وأعلى جودة
             </p>
@@ -118,7 +187,6 @@ export default function Home() {
             <h3 className="text-yellow-500 text-xl font-bold">
               شحن سريع
             </h3>
-
             <p className="text-gray-400 mt-2">
               توصيل لجميع المحافظات
             </p>
@@ -128,13 +196,74 @@ export default function Home() {
             <h3 className="text-yellow-500 text-xl font-bold">
               دعم مستمر
             </h3>
-
             <p className="text-gray-400 mt-2">
               الرد على جميع الاستفسارات
             </p>
           </div>
 
         </div>
+      </section>
+
+      {/* Brands */}
+      <section className="max-w-6xl mx-auto px-6 pb-20">
+        <h2 className="text-4xl text-center font-bold text-yellow-500 mb-10">
+          أشهر الماركات
+        </h2>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+
+          <div className="border border-gray-800 rounded-xl p-6">
+            Rolex
+          </div>
+
+          <div className="border border-gray-800 rounded-xl p-6">
+            Cartier
+          </div>
+
+          <div className="border border-gray-800 rounded-xl p-6">
+            Omega
+          </div>
+
+          <div className="border border-gray-800 rounded-xl p-6">
+            Tissot
+          </div>
+
+        </div>
+      </section>
+
+      {/* Reviews */}
+      <section className="max-w-5xl mx-auto px-6 pb-20">
+        <h2 className="text-4xl text-center font-bold text-yellow-500 mb-10">
+          آراء العملاء
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-6">
+
+          <div className="border border-gray-800 rounded-xl p-6">
+            ⭐⭐⭐⭐⭐
+            <p className="mt-3">
+              ساعة ممتازة والخامة رائعة جدًا.
+            </p>
+          </div>
+
+          <div className="border border-gray-800 rounded-xl p-6">
+            ⭐⭐⭐⭐⭐
+            <p className="mt-3">
+              الشحن سريع والتغليف ممتاز.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Call */}
+      <section className="text-center pb-20">
+        <a
+          href="tel:01203226232"
+          className="bg-white text-black px-8 py-4 rounded-xl font-bold"
+        >
+          📞 اتصل الآن
+        </a>
       </section>
 
       {/* Footer */}
