@@ -1,27 +1,31 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { FaWhatsapp, FaBars, FaTimes } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaWhatsapp, FaBars, FaTimes, FaShippingFast, FaShieldAlt, FaHeadset } from "react-icons/fa";
 
+// قائمة المنتجات مع دمج الفئات (Category) لتفعيل الفلترة الذكية الاحترافية
 const watches = [
   {
     id: 1,
     name: "Rolex Classic",
     price: "450 EGP",
     image: "/Rolex.jpg",
+    category: "classic"
   },
   {
     id: 2,
     name: "Rolex Gold",
     price: "550 EGP",
     image: "/Rolex.jpg",
+    category: "gold"
   },
   {
     id: 3,
     name: "Rolex Silver",
     price: "500 EGP",
     image: "/Rolex.jpg",
+    category: "silver"
   },
 ];
 
@@ -29,30 +33,35 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showImage, setShowImage] = useState(false);
   const [selectedImage, setSelectedImage] = useState("/Rolex.jpg");
+  const [activeCategory, setActiveCategory] = useState("all");
+
+  // تصفية المنتجات ديناميكياً بحسب الفئة النشطة
+  const filteredWatches = activeCategory === "all" 
+    ? watches 
+    : watches.filter(watch => watch.category === activeCategory);
 
   return (
     <main className="min-h-screen bg-[#030303] text-zinc-100 font-sans selection:bg-[#d4af37] selection:text-black overflow-x-hidden antialiased">
       
       {/* شريط العروض العلوي الفاخر */}
-      <div className="bg-[#d4af37] text-black text-center py-2 text-xs md:text-sm font-medium tracking-wide">
+      <div className="bg-[#d4af37] text-black text-center py-2.5 text-xs md:text-sm font-semibold tracking-wider uppercase">
         🚚 شحن سريع لجميع المحافظات | خصم 20% لفترة محدودة
       </div>
 
-      {/* الهيدر وقائمة التنقل - مستوحى من خطوط الهوية الفاخرة */}
-      <nav className="border-b border-zinc-900/60 px-6 py-6 max-w-7xl mx-auto">
-        <div className="flex justify-between items-center">
+      {/* الهيدر وقائمة التنقل الثابتة والذكية مع تأثير زجاجي شفاف */}
+      <nav className="sticky top-0 z-50 backdrop-blur-md bg-[#030303]/80 border-b border-zinc-900/60 px-6 py-5">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
           
-          <div className="cursor-pointer">
-  <h1 className="text-2xl md:text-3xl font-serif tracking-tight text-[#d4af37]">
-    TIME STORE
-  </h1>
+          <div className="cursor-pointer group">
+            <h1 className="text-2xl md:text-3xl font-serif tracking-tight text-[#d4af37] group-hover:opacity-90 transition">
+              TIME STORE
+            </h1>
+            <p className="text-[10px] tracking-[0.3em] text-zinc-500 font-mono">
+              LUXURY WATCHES
+            </p>
+          </div>
 
-  <p className="text-[10px] tracking-[0.3em] text-zinc-500">
-    LUXURY WATCHES
-  </p>
-</div>
-
-          <div className="hidden md:flex gap-10 text-xs tracking-widest uppercase text-zinc-400">
+          <div className="hidden md:flex gap-10 text-xs tracking-widest uppercase font-medium text-zinc-400">
             <a href="#" className="hover:text-[#d4af37] transition-colors duration-300">
               الرئيسية
             </a>
@@ -70,25 +79,28 @@ export default function Home() {
           </div>
 
           <button
-            className="md:hidden text-xl text-zinc-400 hover:text-white transition"
+            className="md:hidden text-xl text-zinc-400 hover:text-white transition p-2"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>
 
-        {/* قائمة الموبايل المتجاوبة */}
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex flex-col gap-5 mt-6 text-center md:hidden pb-4 text-zinc-400 border-t border-zinc-900 pt-4"
-          >
-            <a href="#" className="hover:text-[#d4af37] py-2 text-sm" onClick={() => setMenuOpen(false)}>الرئيسية</a>
-            <a href="#products" className="hover:text-[#d4af37] py-2 text-sm" onClick={() => setMenuOpen(false)}>المنتجات</a>
-            <a href="https://wa.me/201203226232" target="_blank" rel="noopener noreferrer" className="hover:text-[#d4af37] py-2 text-sm" onClick={() => setMenuOpen(false)}>تواصل معنا</a>
-          </motion.div>
-        )}
+        {/* قائمة الموبايل المتجاوبة والانسيابية */}
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="flex flex-col gap-5 mt-4 text-center md:hidden pb-4 text-zinc-400 border-t border-zinc-900 pt-4 font-medium"
+            >
+              <a href="#" className="hover:text-[#d4af37] py-2 text-sm" onClick={() => setMenuOpen(false)}>الرئيسية</a>
+              <a href="#products" className="hover:text-[#d4af37] py-2 text-sm" onClick={() => setMenuOpen(false)}>المنتجات</a>
+              <a href="https://wa.me/201203226232" target="_blank" rel="noopener noreferrer" className="hover:text-[#d4af37] py-2 text-sm" onClick={() => setMenuOpen(false)}>تواصل معنا</a>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       {/* الـ Hero Section الفاخر المقتبس هندسياً وبصرياً من الصورة */}
@@ -207,83 +219,124 @@ export default function Home() {
       </section>
 
       {/* مقدمة عرض شبكة المنتجات الحصرية */}
-      <section className="text-center pt-28 pb-16">
-        <span className="text-[10px] font-mono text-[#d4af37] tracking-[0.4em] uppercase block mb-3">// أحدث المنتجات</span>
+      <section id="products" className="text-center pt-28 pb-10">
+        <span className="text-[10px] font-mono text-[#d4af37] tracking-[0.4em] uppercase block mb-3">// التشكيلة الفاخرة</span>
         <h2 className="text-3xl md:text-5xl font-serif font-light tracking-tight text-zinc-100">
           التشكيلة الفنية المتاحة
         </h2>
       </section>
 
-      {/* كروت المنتجات - أسلوب إطارات حاد، داكن وعميق بخلفية تندمج مع الفراغ المحيط بها */}
-      <section id="products" className="max-w-6xl mx-auto px-6 pb-32">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 xl:gap-12">
-          {watches.map((watch) => (
-            <motion.div
-              key={watch.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
-              className="group border border-zinc-900 bg-[#060606] hover:border-zinc-700/80 transition-all duration-500 flex flex-col justify-between"
-            >
-              <div className="overflow-hidden relative aspect-[3/4] bg-zinc-950">
-                <img
-                  src={watch.image}
-                  alt={watch.name}
-                  onClick={() => {
-                    setSelectedImage(watch.image);
-                    setShowImage(true);
-                  }}
-                  className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700 cursor-zoom-in"
-                />
-                <div className="absolute inset-0 bg-black/15 group-hover:bg-black/0 transition-colors duration-500" />
-              </div>
+      {/* أزرار التصفية التفاعلية (Filter Tabs) المتاحة في المواقع الاحترافية الكبرى */}
+      <div className="flex flex-wrap justify-center gap-3 mb-16 max-w-xl mx-auto px-6">
+        {[
+          { id: "all", label: "جميع القطع" },
+          { id: "classic", label: "كلاسيك" },
+          { id: "gold", label: "إصدارات ذهبية" },
+          { id: "silver", label: "إصدارات فضية" }
+        ].map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveCategory(tab.id)}
+            className={`px-6 py-2.5 text-xs font-medium tracking-wide border transition-all duration-300 rounded-none ${
+              activeCategory === tab.id
+                ? "bg-[#d4af37] text-black border-[#d4af37]"
+                : "bg-zinc-950 text-zinc-400 border-zinc-900 hover:text-white hover:border-zinc-700"
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
 
-              <div className="p-8 text-center space-y-3">
-                <h3 className="text-xl font-serif tracking-wide text-zinc-200">
-                  {watch.name}
-                </h3>
-                <p className="text-[#d4af37] font-mono text-base font-light tracking-wider">
-                  {watch.price}
-                </p>
-                <a
-                  href={`https://wa.me/201203226232?text=أريد طلب ${encodeURIComponent(watch.name)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block w-full mt-4 bg-transparent text-zinc-400 border border-zinc-800 py-3 text-[11px] tracking-widest uppercase font-mono font-semibold hover:bg-[#d4af37] hover:text-black hover:border-[#d4af37] transition-all duration-300"
-                >
-                  اطلب الآن
-                </a>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+      {/* كروت المنتجات - أسلوب إطارات حاد، داكن وعميق مع تأثيرات الطفو (Floating/Hover) */}
+      <section className="max-w-6xl mx-auto px-6 pb-32">
+        <motion.div 
+          layout 
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 xl:gap-12"
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredWatches.map((watch) => (
+              <motion.div
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.5 }}
+                key={watch.id}
+                className="group border border-zinc-900 bg-[#060606] hover:border-zinc-700/80 shadow-xl hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between"
+              >
+                <div className="overflow-hidden relative aspect-[3/4] bg-zinc-950">
+                  <img
+                    src={watch.image}
+                    alt={watch.name}
+                    onClick={() => {
+                      setSelectedImage(watch.image);
+                      setShowImage(true);
+                    }}
+                    className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700 cursor-zoom-in"
+                  />
+                  <div className="absolute inset-0 bg-black/15 group-hover:bg-black/0 transition-colors duration-500" />
+                </div>
+
+                <div className="p-8 text-center space-y-3">
+                  <h3 className="text-xl font-serif tracking-wide text-zinc-200 group-hover:text-[#d4af37] transition-colors">
+                    {watch.name}
+                  </h3>
+                  <p className="text-[#d4af37] font-mono text-base font-light tracking-wider">
+                    {watch.price}
+                  </p>
+                  <a
+                    href={`https://wa.me/201203226232?text=أريد طلب ${encodeURIComponent(watch.name)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block w-full mt-4 bg-transparent text-zinc-400 border border-zinc-800 py-3 text-[11px] tracking-widest uppercase font-mono font-semibold hover:bg-[#d4af37] hover:text-black hover:border-[#d4af37] transition-all duration-300"
+                  >
+                    اطلب الآن
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </section>
 
-      {/* قسم ركائز الهوية والثقة للمتجر */}
+      {/* قسم ركائز الهوية والثقة للمتجر مع دمج الأيقونات الاحترافية اللطيفة */}
       <section className="bg-[#050505] border-t border-zinc-900 py-24 px-6">
         <div className="max-w-5xl mx-auto text-center mb-16">
           <h2 className="text-2xl md:text-4xl font-serif font-light text-zinc-200">لماذا Time Store؟</h2>
         </div>
         <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-12 text-center">
-          <div className="space-y-3">
+          
+          <div className="space-y-4 flex flex-col items-center">
+            <div className="w-12 h-12 rounded-full border border-zinc-800 flex items-center justify-center text-[#d4af37] text-lg bg-zinc-950 shadow-inner">
+              <FaShieldAlt />
+            </div>
             <h3 className="text-[#d4af37] text-lg font-serif font-normal tracking-wide">منتجات أصلية</h3>
             <p className="text-zinc-500 text-sm font-light leading-relaxed max-w-xs mx-auto">
               أفضل الخامات وأعلى جودة مصنعية نضمنها لك في كل قطعة نختارها بعناية.
             </p>
           </div>
-          <div className="space-y-3 md:border-x md:border-zinc-900 md:px-6">
+
+          <div className="space-y-4 flex flex-col items-center md:border-x md:border-zinc-900 md:px-6">
+            <div className="w-12 h-12 rounded-full border border-zinc-800 flex items-center justify-center text-[#d4af37] text-lg bg-zinc-950 shadow-inner">
+              <FaShippingFast />
+            </div>
             <h3 className="text-[#d4af37] text-lg font-serif font-normal tracking-wide">شحن سريع</h3>
             <p className="text-zinc-500 text-sm font-light leading-relaxed max-w-xs mx-auto">
               توصيل لكافة المحافظات بأمان وعناية لضمان وصول الساعة بأبهى صورة.
             </p>
           </div>
-          <div className="space-y-3">
+
+          <div className="space-y-4 flex flex-col items-center">
+            <div className="w-12 h-12 rounded-full border border-zinc-800 flex items-center justify-center text-[#d4af37] text-lg bg-zinc-950 shadow-inner">
+              <FaHeadset />
+            </div>
             <h3 className="text-[#d4af37] text-lg font-serif font-normal tracking-wide">دعم مستمر</h3>
             <p className="text-zinc-500 text-sm font-light leading-relaxed max-w-xs mx-auto">
               دعم فني جاهز على مدار الساعة للرد على كافة الاستفسارات وضمان رضاكم التام.
             </p>
           </div>
+
         </div>
       </section>
 
