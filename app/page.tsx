@@ -55,7 +55,7 @@ export default function Home() {
             </p>
 
            <a
-  href={`https://wa.me/201279425370?text=أريد طلب ${watch.name} بسعر ${watch.price}`}
+  href={`https://wa.me/201203226232?text=أريد طلب ${watch.name} بسعر ${watch.price}`}
   target="_blank"
   className="inline-block mt-4 bg-yellow-500 text-black px-6 py-2 rounded-lg font-bold"
 >
