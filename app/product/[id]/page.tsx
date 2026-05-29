@@ -1,65 +1,38 @@
-export default function ProductPage() {
+export default function ProductPage({
+  params,
+}: {
+  params: { id: string };
+}) {
   return (
-    <main className="min-h-screen bg-black text-white p-6">
+    <main className="min-h-screen bg-black text-white p-10">
+      <h1 className="text-5xl font-bold text-yellow-500">
+        المنتج رقم {params.id}
+      </h1>
 
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <img
+        src="/Rolex.jpg"
+        alt="Rolex"
+        className="w-96 mt-10 rounded-xl"
+      />
 
-        {/* Product Image */}
-        <div>
-          <a href="/Rolex.jpg" target="_blank">
-            <img
-              src="/Rolex.jpg"
-              alt="Rolex"
-              className="w-full rounded-3xl border border-gray-800 hover:scale-105 transition duration-300"
-            />
-          </a>
-        </div>
+      <h2 className="text-3xl mt-6">
+        Rolex Watch
+      </h2>
 
-        {/* Product Details */}
-        <div>
+      <p className="text-yellow-500 text-2xl mt-2">
+        450 EGP
+      </p>
 
-          <h1 className="text-4xl md:text-6xl font-bold text-yellow-500">
-            Rolex Classic
-          </h1>
+      <p className="mt-6 text-gray-400">
+        ساعة فاخرة بجودة عالية وخامات ممتازة.
+      </p>
 
-          <p className="text-3xl mt-6 font-bold">
-            450 EGP
-          </p>
-
-          <p className="mt-6 text-gray-400 leading-8">
-            ساعة فاخرة بتصميم أنيق ومميز.
-            خامات عالية الجودة ومناسبة للاستخدام اليومي
-            والمناسبات الخاصة.
-          </p>
-
-          <div className="mt-8 space-y-3">
-
-            <div>
-              ✅ خامات ممتازة
-            </div>
-
-            <div>
-              ✅ تصميم فاخر
-            </div>
-
-            <div>
-              ✅ شحن لجميع المحافظات
-            </div>
-
-          </div>
-
-          <a
-            href="https://wa.me/201203226232"
-            target="_blank"
-            className="inline-block mt-8 bg-yellow-500 text-black px-8 py-4 rounded-xl font-bold hover:bg-yellow-400 transition"
-          >
-            اطلب الآن عبر واتساب
-          </a>
-
-        </div>
-
-      </div>
-
+      <a
+        href="https://wa.me/201203226232"
+        className="inline-block mt-8 bg-green-600 px-8 py-4 rounded-lg"
+      >
+        اطلب الآن
+      </a>
     </main>
   );
 }

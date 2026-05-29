@@ -320,17 +320,20 @@ export default function Home() {
                 <div className="p-8 text-center space-y-2">
                   <h3 className="text-lg font-serif text-zinc-200">{watch.name}</h3>
                   <p className="text-[#d4af37] font-mono text-sm">{watch.basePrice} EGP</p>
-                  <button
-                    onClick={() => {
-                      setSelectedWatch(watch);
-                      setSelectedColor(watch.colors[0]);
-                      setSelectedStrap(watch.straps ? watch.straps[0] : null);
-                      document.getElementById("configurator")?.scrollIntoView({ behavior: "smooth" });
-                    }}
-                    className="inline-block w-full mt-4 bg-zinc-950 text-zinc-400 border border-zinc-900 py-2.5 text-[11px] tracking-widest uppercase font-mono font-semibold hover:bg-[#d4af37] hover:text-black hover:border-[#d4af37] transition-all"
-                  >
-                    تعديل وتخصيص الساعة
-                  </button>
+              <button
+  onClick={() => {
+    setSelectedWatch(watch);
+    setSelectedColor(watch.colors[0]);
+    setSelectedStrap(watch.straps[0]);
+
+    document.getElementById("configurator")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }}
+  className="inline-block w-full mt-4 bg-zinc-950 text-zinc-400 border border-zinc-900 py-2.5 text-[11px] tracking-widest uppercase font-mono font-semibold hover:bg-[#d4af37] hover:text-black hover:border-[#d4af37] transition-all"
+>
+  تعديل وتخصيص الساعة
+</button>
                 </div>
               </motion.div>
             ))}
