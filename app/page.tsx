@@ -106,7 +106,7 @@ export default function Home() {
 
         <div className="border border-gray-800 rounded-xl p-6 text-center">
           <h3 className="text-yellow-500 text-2xl font-bold">
-            دعم 24/7
+            دعم 24/24
           </h3>
 
           <p className="text-gray-400 mt-3">
