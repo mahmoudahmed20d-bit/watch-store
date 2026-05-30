@@ -276,11 +276,25 @@ export default function Home() {
   <div className="max-w-7xl mx-auto flex justify-between items-center">
 
     <div>
-    <img
-  src="/logo.png"
-  alt="MD STORE"
-  className="h-12 w-auto"
-/>
+ <div className="flex items-center gap-4">
+
+  <img
+    src="/logo.png"
+    alt="MD STORE"
+    className="h-24 md:h-28 w-auto"
+  />
+
+  <div>
+    <h1 className="text-3xl md:text-4xl font-bold text-[#d4af37]">
+      MD STORE
+    </h1>
+
+    <p className="text-xs tracking-[0.4em] text-zinc-500 mt-1">
+      LUXURY WATCHES
+    </p>
+  </div>
+
+</div>
 
       <p className="text-[10px] tracking-[0.3em] text-zinc-500">
         LUXURY WATCHES
