@@ -136,7 +136,7 @@ export default function Home() {
       <nav className="sticky top-0 z-50 backdrop-blur-md bg-[#030303]/80 border-b border-zinc-900/60 px-6 py-5">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="cursor-pointer">
-            <h1 className="text-2xl md:text-3xl font-serif tracking-tight text-[#d4af37]">TIME STORE</h1>
+            <h1 className="text-2xl md:text-3xl font-serif tracking-tight text-[#d4af37]">MD STORE</h1>
             <p className="text-[10px] tracking-[0.3em] text-zinc-500 font-mono">LUXURY WATCHES</p>
           </div>
 
