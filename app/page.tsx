@@ -58,13 +58,13 @@ const watches = [
         name: "ذهب عيار 24",
         hex: "#d4af37",
         priceModifier: 0,
-        img: "/Rolex.jpg",
+        img: "/Rolex gold.jpg",
       },
       {
         name: "روز جولد",
         hex: "#b76e79",
         priceModifier: 40,
-        img: "/Rolex.jpg",
+        img: "/Rolex gold.jpg",
       },
     ],
     straps: [
@@ -85,14 +85,14 @@ const watches = [
     id: 3,
     name: "Rolex Silver GMT",
     basePrice: 500,
-    image: "/Rolex.jpg",
+    image: "/GMT.jpg",
     category: "silver",
     colors: [
       {
         name: "بلاتينيوم مشع",
         hex: "#e5e4e2",
         priceModifier: 0,
-        img: "/Rolex.jpg",
+        img: "/GMT.jpg",
       },
     ],
     straps: [
