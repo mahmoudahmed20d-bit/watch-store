@@ -277,7 +277,7 @@ export default function Home() {
 
     <div>
       <h1 className="text-2xl md:text-3xl font-serif text-[#d4af37]">
-        TIME STORE
+        MD STORE
       </h1>
 
       <p className="text-[10px] tracking-[0.3em] text-zinc-500">
@@ -782,7 +782,7 @@ export default function Home() {
 <footer className="border-t border-zinc-900 py-10 text-center text-zinc-500">
 
   <p>
-    © 2026 TIME STORE
+    © 2026 MD STORE. جميع الحقوق محفوظة.
   </p>
 
   <p className="mt-2">
