@@ -276,9 +276,11 @@ export default function Home() {
   <div className="max-w-7xl mx-auto flex justify-between items-center">
 
     <div>
-      <h1 className="text-2xl md:text-3xl font-serif text-[#d4af37]">
-        MD STORE
-      </h1>
+    <img
+  src="/logo.png"
+  alt="MD STORE"
+  className="h-12 w-auto"
+/>
 
       <p className="text-[10px] tracking-[0.3em] text-zinc-500">
         LUXURY WATCHES
