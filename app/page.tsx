@@ -383,7 +383,7 @@ export default function Home() {
 
       {/* فوتر ختام الصفحة الفخم والمحكم */}
       <footer className="border-t border-zinc-900 bg-[#010101] py-12 text-center text-[11px] tracking-widest text-zinc-600 font-mono space-y-2">
-        <p>© 2026 Time Store. All rights reserved.</p>
+        <p>© 2026 MD STORE. All rights reserved.</p>
         <p className="text-zinc-700 text-xs">WhatsApp support: 01203226232</p>
       </footer>
 
