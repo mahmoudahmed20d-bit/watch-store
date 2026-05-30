@@ -51,7 +51,7 @@ const watches = [
     id: 2,
     name: "Rolex Gold Prestige",
     basePrice: 550,
-    image: "/Rolex.jpg",
+    image: "/Rolex gold.jpg",
     category: "gold",
     colors: [
       {
